@@ -101,6 +101,11 @@ async def transcriptions(
     return await whisper(file, response_format, **kwargs)
 
 
+@app.get("/ping")
+async def ping():
+    return {"status": "ok"}
+
+
 @app.post("/v1/audio/translations")
 async def translations(
         file: UploadFile,
